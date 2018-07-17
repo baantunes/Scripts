@@ -1,0 +1,9 @@
+#!/bin/bash
+# Replace spaces in filenames by underscore
+# Based on:
+# http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names
+
+# Create link
+# sudo ln -s <full path>/replace_spaces  /usr/local/bin/replace_spaces
+
+for f in *\ *; do mv "$f" "${f// /_}"; done
