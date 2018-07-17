@@ -1,0 +1,9 @@
+#!/bin/bash
+# Recursively delete all files of a specific extension in the current directory
+# Based on:
+# http://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di
+
+# Create link
+# sudo ln -s <full path>/remove_files /usr/local/bin/remove_files
+
+find . -name "*.bak" -type f -delete
