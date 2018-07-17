@@ -1,0 +1,27 @@
+#!/bin/bash
+# Replace letters with accentuation in filenames
+# Based on:
+# http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names
+
+# Create link
+# sudo ln -s <full path>/replace_chars /usr/local/bin/replace_chars
+
+for f in *\ *; do mv "$f" "${f//á/a}"; done;
+for f in *\ *; do mv "$f" "${f//Á/A}"; done;
+for f in *\ *; do mv "$f" "${f//ã/a}"; done;
+for f in *\ *; do mv "$f" "${f//à/a}"; done;
+for f in *\ *; do mv "$f" "${f//À/A}"; done;
+for f in *\ *; do mv "$f" "${f//â/a}"; done;
+
+for f in *\ *; do mv "$f" "${f//é/e}"; done;
+for f in *\ *; do mv "$f" "${f//ê/e}"; done;
+
+for f in *\ *; do mv "$f" "${f//í/i}"; done;
+
+for f in *\ *; do mv "$f" "${f//ó/o}"; done;
+for f in *\ *; do mv "$f" "${f//ô/o}"; done;
+for f in *\ *; do mv "$f" "${f//õ/o}"; done;
+
+for f in *\ *; do mv "$f" "${f//ú/u}"; done;
+
+for f in *\ *; do mv "$f" "${f//ç/c}"; done;
