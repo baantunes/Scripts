@@ -1,0 +1,62 @@
+#!/bin/bash
+# Program for arg testing & manipulation
+
+echo "Program for arg testing & manipulation"
+
+# Error message
+if [[ $# == 0 ]]; then 
+ 	echo "No args suplied"
+ 	exit 1
+fi
+
+# Number of args
+echo "Number of args:" $#
+
+# All args
+echo "Introduced args where:" $*
+
+# All args
+echo "Introduced args where:" $@
+
+# Print last arg
+echo "Last arg was:" "${@: -1}"
+
+# Print nth arg
+n=2
+echo "Printing arg number $n:" ${!n}
+
+# Print first arg
+n=1
+echo "Printing arg number $n:" ${@:$n:1}
+
+# Iterate through args
+for i in "$@"
+do
+	echo $i
+done
+
+# Find specific arg
+for i in "$@"
+do
+	if [[ $i == "-s" ]]; then
+		echo "The special arg is" $i 
+	fi	
+done
+
+for (( i=1; i <= $#; i++ ))
+do
+	echo "Printing arg number" $i ${@:$i:1}
+done
+
+for (( i=1; i <= $#; i++ ))
+do
+	if  [[ ${@:$i:1} == "-s" ]]; then
+		echo "The special arg is" ${@:$i:1} "and position is $i"
+	fi
+done
+
+# Delete specific char
+delete=-s
+array=$@
+array=( "${array[@]/$delete}" )
+echo $array
