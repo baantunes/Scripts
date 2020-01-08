@@ -77,7 +77,7 @@ calc_disk() {
     done
     echo ${total_size}
 }
-
+hname=$(hostname)
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 freq=$( awk -F'[ :]' '/cpu MHz/ {print $4;exit}' /proc/cpuinfo )
@@ -99,6 +99,7 @@ disk_used_size=$( calc_disk "${disk_size2[@]}" )
 
 clear
 next
+echo -e "Host name            : ${BLUE}$hname${PLAIN}"
 echo -e "CPU model            : ${BLUE}$cname${PLAIN}"
 echo -e "Number of cores      : ${BLUE}$cores${PLAIN}"
 echo -e "CPU frequency        : ${BLUE}$freq MHz${PLAIN}"
