@@ -10,6 +10,9 @@
 #
 # Instructions to run
 # https://www.vpsserver.com/community/tutorials/3938/one-click-test-server-performance-script/
+#
+# wget -qO- bench.sh | bash
+
 
 if  [ ! -e '/usr/bin/wget' ]; then
     echo "Error: wget command not found. You must be install wget command at first."
