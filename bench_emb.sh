@@ -14,7 +14,7 @@
 # wget -qO- bench.sh | bash
 
 
-if  [ ! -e '/usr/bin/wget' ]; then
+if  [ ! -e '/bin/wget' ]; then
     echo "Error: wget command not found. You must be install wget command at first."
     exit 1
 fi
