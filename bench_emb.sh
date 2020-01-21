@@ -1,4 +1,4 @@
-#!/usr/bin/env ash
+#!/bin/ash
 #
 # Description: Auto test download & I/O speed script
 #
