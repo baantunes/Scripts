@@ -46,7 +46,8 @@ speed_test_v4() {
 }
 
 speed_v4() {
-    speed_test_v4 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
+    speed_test_v4 'http://cachefly.cachefly.net/100mb.test' 'CacheFly,  Virginia Beach, US'
+    speed_test_v4 'http://ipv4.download.thinkbroadband.com/100MB.zip' 'Tranbjerg, Denmark, DK'
     speed_test_v4 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo2, JP'
     speed_test_v4 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
     speed_test_v4 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
