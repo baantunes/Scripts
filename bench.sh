@@ -82,6 +82,25 @@ calc_disk() {
     done
     echo ${total_size}
 }
+
+print_io(){
+    io1=$( io_test )
+    echo -e "I/O speed(1st run)   : ${YELLOW}$io1${PLAIN}"
+    io2=$( io_test )
+    echo -e "I/O speed(2nd run)   : ${YELLOW}$io2${PLAIN}"
+    io3=$( io_test )
+    echo -e "I/O speed(3rd run)   : ${YELLOW}$io3${PLAIN}"
+    ioraw1=$( echo $io1 | awk 'NR==1 {print $1}' )
+    [ "`echo $io1 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw1=$( awk 'BEGIN{print '$ioraw1' * 1024}' )
+    ioraw2=$( echo $io2 | awk 'NR==1 {print $1}' )
+    [ "`echo $io2 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw2=$( awk 'BEGIN{print '$ioraw2' * 1024}' )
+    ioraw3=$( echo $io3 | awk 'NR==1 {print $1}' )
+    [ "`echo $io3 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw3=$( awk 'BEGIN{print '$ioraw3' * 1024}' )
+    ioall=$( awk 'BEGIN{print '$ioraw1' + '$ioraw2' + '$ioraw3'}' )
+    ioavg=$( awk 'BEGIN{printf "%.1f", '$ioall' / 3}' )
+    echo -e "Average I/O speed    : ${YELLOW}$ioavg MB/s${PLAIN}"
+}
+
 hname=$(hostname)
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
@@ -117,21 +136,7 @@ echo -e "OS                   : ${BLUE}$opsy${PLAIN}"
 echo -e "Arch                 : ${BLUE}$arch ($lbit Bit)${PLAIN}"
 echo -e "Kernel               : ${BLUE}$kern${PLAIN}"
 next
-io1=$( io_test )
-echo -e "I/O speed(1st run)   : ${YELLOW}$io1${PLAIN}"
-io2=$( io_test )
-echo -e "I/O speed(2nd run)   : ${YELLOW}$io2${PLAIN}"
-io3=$( io_test )
-echo -e "I/O speed(3rd run)   : ${YELLOW}$io3${PLAIN}"
-ioraw1=$( echo $io1 | awk 'NR==1 {print $1}' )
-[ "`echo $io1 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw1=$( awk 'BEGIN{print '$ioraw1' * 1024}' )
-ioraw2=$( echo $io2 | awk 'NR==1 {print $1}' )
-[ "`echo $io2 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw2=$( awk 'BEGIN{print '$ioraw2' * 1024}' )
-ioraw3=$( echo $io3 | awk 'NR==1 {print $1}' )
-[ "`echo $io3 | awk 'NR==1 {print $2}'`" == "GB/s" ] && ioraw3=$( awk 'BEGIN{print '$ioraw3' * 1024}' )
-ioall=$( awk 'BEGIN{print '$ioraw1' + '$ioraw2' + '$ioraw3'}' )
-ioavg=$( awk 'BEGIN{printf "%.1f", '$ioall' / 3}' )
-echo -e "Average I/O speed    : ${YELLOW}$ioavg MB/s${PLAIN}"
+print_io
 next
 printf "%-32s%-24s%-14s\n" "Node Name" "IPv4 address" "Download Speed"
 speed_v4 && next
