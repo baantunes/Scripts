@@ -51,6 +51,7 @@ speed_v4() {
     speed_test_v4 'http://www.ovh.net/files/100Mb.dat' 'OVH, Graz, AT'
     speed_test_v4 'http://speedtest.tele2.net/100MB.zip' 'Tele2, Moulineaux, FR'
     speed_test_v4 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
+    speed_test_v4 'https://speed.hetzner.de/100MB.bin' 'Hetzner, Nuremberg, DE'
     speed_test_v4 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
     speed_test_v4 'http://speedtest.fra02.softlayer.com/downloads/test100.zip' 'Softlayer, Frankfurt, DE'
     speed_test_v4 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
