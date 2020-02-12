@@ -50,6 +50,7 @@ speed_v4() {
     speed_test_v4 'http://ipv4.download.thinkbroadband.com/100MB.zip' 'Thinkbroadband, Tranbjerg, DK'
     speed_test_v4 'http://www.ovh.net/files/100Mb.dat' 'OVH, Graz, AT'
     speed_test_v4 'http://speedtest.tele2.net/100MB.zip' 'Tele2, Moulineaux, FR'
+    speed_test_v4 'http://speedcheck.cdn.on.net/100meg.test' 'Internode, Adelaide, AU' 
     speed_test_v4 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
     speed_test_v4 'https://speed.hetzner.de/100MB.bin' 'Hetzner, Nuremberg, DE'
     speed_test_v4 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
