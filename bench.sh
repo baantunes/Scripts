@@ -101,6 +101,21 @@ print_io(){
     echo -e "Average I/O speed    : ${YELLOW}$ioavg MB/s${PLAIN}"
 }
 
+print_info(){
+    echo -e "Host name            : ${BLUE}$hname${PLAIN}"
+    echo -e "CPU model            : ${BLUE}$cname${PLAIN}"
+    echo -e "Number of cores      : ${BLUE}$cores${PLAIN}"
+    echo -e "CPU frequency        : ${BLUE}$freq MHz${PLAIN}"
+    echo -e "Total size of Disk   : ${BLUE}$disk_total_size GB ($disk_used_size GB Used)${PLAIN}"
+    echo -e "Total amount of Mem  : ${BLUE}$tram MB ($uram MB Used)${PLAIN}"
+    echo -e "Total amount of Swap : ${BLUE}$swap MB ($uswap MB Used)${PLAIN}"
+    echo -e "System uptime        : ${BLUE}$up${PLAIN}"
+    echo -e "Load average         : ${BLUE}$load${PLAIN}"
+    echo -e "OS                   : ${BLUE}$opsy${PLAIN}"
+    echo -e "Arch                 : ${BLUE}$arch ($lbit Bit)${PLAIN}"
+    echo -e "Kernel               : ${BLUE}$kern${PLAIN}"
+}
+
 hname=$(hostname)
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
@@ -123,18 +138,7 @@ disk_used_size=$( calc_disk "${disk_size2[@]}" )
 
 clear
 next
-echo -e "Host name            : ${BLUE}$hname${PLAIN}"
-echo -e "CPU model            : ${BLUE}$cname${PLAIN}"
-echo -e "Number of cores      : ${BLUE}$cores${PLAIN}"
-echo -e "CPU frequency        : ${BLUE}$freq MHz${PLAIN}"
-echo -e "Total size of Disk   : ${BLUE}$disk_total_size GB ($disk_used_size GB Used)${PLAIN}"
-echo -e "Total amount of Mem  : ${BLUE}$tram MB ($uram MB Used)${PLAIN}"
-echo -e "Total amount of Swap : ${BLUE}$swap MB ($uswap MB Used)${PLAIN}"
-echo -e "System uptime        : ${BLUE}$up${PLAIN}"
-echo -e "Load average         : ${BLUE}$load${PLAIN}"
-echo -e "OS                   : ${BLUE}$opsy${PLAIN}"
-echo -e "Arch                 : ${BLUE}$arch ($lbit Bit)${PLAIN}"
-echo -e "Kernel               : ${BLUE}$kern${PLAIN}"
+print_info
 next
 print_io
 next
