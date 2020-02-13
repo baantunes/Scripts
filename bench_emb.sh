@@ -12,6 +12,9 @@
 # https://www.vpsserver.com/community/tutorials/3938/one-click-test-server-performance-script/
 #
 # wget -qO- bench.sh | bash
+#
+# Run with url shortener
+# curl -Lso- https://git.io/JvW6d | ash
 
 
 if  [ ! -e '/bin/wget' ]; then
