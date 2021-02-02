@@ -1,0 +1,19 @@
+#!/bin/bash
+# Send notifications to telegram bots
+#
+# Place for script
+# /usr/local/bin/telegram
+#
+# Needs USERID and BOTKEY
+
+# Chat id
+USERID=""
+
+# Bot key
+KEY=""
+
+TIMEOUT="10"
+
+URL="https://api.telegram.org/bot$KEY/sendMessage"
+
+curl -s --max-time $TIMEOUT -d "chat_id=$USERID&disable_web_page_preview=1&text=$1" $URL > /dev/null
