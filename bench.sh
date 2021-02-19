@@ -59,12 +59,12 @@ speed_v4() {
     speed_test_v4 'http://ipv4.download.thinkbroadband.com/100MB.zip' 'Thinkbroadband, London, UK'
     speed_test_v4 'http://speedtest.fremont.linode.com/100MB-fremont.bin' 'Linode, Fremont, CA'
     speed_test_v4 'http://speedtest.dal05.softlayer.com/downloads/test100.zip' 'Softlayer, Dallas, TX'
-    speed_test_v4 'http://speedtest.sea01.softlayer.com/downloads/test100.zip' 'Softlayer, Seattle, WA'
+    #speed_test_v4 'http://speedtest.sea01.softlayer.com/downloads/test100.zip' 'Softlayer, Seattle, WA'
     speed_test_v4 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo2, JP'
     speed_test_v4 'http://speedtest.sng01.softlayer.com/downloads/test100.zip' 'Softlayer, Singapore, SG'
     speed_test_v4 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
     speed_test_v4 'http://speedtest.hkg02.softlayer.com/downloads/test100.zip' 'Softlayer, HongKong, CN'
-    speed_test_v4 'http://speedcheck.cdn.on.net/100meg.test' 'Internode, Adelaide, AU' 
+    #speed_test_v4 'http://speedcheck.cdn.on.net/100meg.test' 'Internode, Adelaide, AU' 
 }
 
 io_test() {
